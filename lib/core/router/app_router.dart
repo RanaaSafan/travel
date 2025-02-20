@@ -20,5 +20,11 @@ class Routers {
   static AppRouter otp =
   AppRouter(name: "/otp", path: "/otp");
 
+  static AppRouter profile =
+  AppRouter(name: "/profile", path: "/profile");
+
+  static AppRouter editProfile =
+  AppRouter(name: "/editProfile", path: "/editProfile");
+
 
 }

@@ -10,4 +10,7 @@ class AppSizeBox{
   static const size25=SizedBox(height: 25,);
   static const size15=SizedBox(height: 15,);
 
+  static const sizeWidth25=SizedBox(width: 25,);
+
+
 }

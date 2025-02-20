@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../../../../core/constants/app_icons.dart';
 import '../../../../../core/constants/app_padding.dart';
 import '../../../../../core/styles/app_colors.dart';
 import '../../../../../core/styles/app_size_box.dart';
@@ -64,11 +65,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              IconButton(
-                  onPressed: () {
-                    GoRouter.of(context).pop();
-                  },
-                  icon: const Icon(Icons.arrow_back_ios_rounded)),
+              AppIcons.backButton(context),
               AppSizeBox.size30,
               const Center(
                   child: Text("Forget password", style: AppTextStyles.signTitle)),

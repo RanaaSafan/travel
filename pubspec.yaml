@@ -36,6 +36,7 @@ dependencies:
   cloud_firestore:
   random_string:
   pinput:
+  image_picker:
   go_router: ^13.0.1
 
   # The following adds the Cupertino Icons font to your application.

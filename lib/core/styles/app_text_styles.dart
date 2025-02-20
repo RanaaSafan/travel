@@ -61,6 +61,14 @@ class AppTextStyles{
     color: AppColors.colorButtonAndBackg,
   );
 
+  static const TextStyle rewardtext=TextStyle(
+    fontSize: AppSize.descriptionSign,
+    color: AppColors.colorSignTitle,
+  );
 
+  static const TextStyle rewardnumber=TextStyle(
+    fontSize: AppSize.textButton,
+    color: AppColors.colorButtonAndBackg,
+  );
 
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../../../../core/constants/app_icons.dart';
 import '../../../../../core/constants/app_padding.dart';
 import '../../../../../core/router/app_router.dart';
 import '../../../../../core/styles/app_colors.dart';
@@ -44,11 +45,7 @@ class _SignUpState extends State<SignUp> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              IconButton(
-                  onPressed: () {
-                    GoRouter.of(context).pop();
-                  },
-                  icon: const Icon(Icons.arrow_back_ios_rounded)),
+              AppIcons.backButton(context),
               const Center(
                   child: Text("Sign up now", style: AppTextStyles.signTitle)),
               AppSizeBox.size5,

@@ -8,5 +8,8 @@ class AppSize{
   static const double height=double.infinity;
   static const double width=double.infinity;
   static const double descriptionSign=16;
+  static const double pinWidth=70;
+  static const double pinHeight=56;
+
 
 }

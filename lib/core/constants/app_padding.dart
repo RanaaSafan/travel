@@ -5,6 +5,9 @@ class AppPadding{
 
   static const EdgeInsets spaceButton =EdgeInsets.all(8);
 
+  static const EdgeInsets symmPadding =EdgeInsets.symmetric(horizontal: 10);
+
+
 
 
 }

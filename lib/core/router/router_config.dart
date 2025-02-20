@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:travel_course/features/authentication/presentation/views/screens/otp_screen.dart';
+import 'package:travel_course/features/profile/presentation/views/screens/edit_screen.dart';
+import 'package:travel_course/features/profile/presentation/views/screens/profile_screen.dart';
 import '../../features/authentication/presentation/views/screens/forget_password_screen.dart';
 import '../../features/authentication/presentation/views/widgets/sign_in.dart';
 import '../../features/authentication/presentation/views/widgets/sign_up.dart';
@@ -9,7 +11,8 @@ import '../../features/splash/presentation/views/screens/splash_screen.dart';
 import 'app_router.dart';
 
 final router = GoRouter(
-    initialLocation: Routers.SplashScreen.path,
+    //initialLocation: Routers.SplashScreen.path,
+    initialLocation: Routers.profile.path,
     routes: [
       GoRoute(
         path: Routers.SplashScreen.path,
@@ -53,6 +56,22 @@ final router = GoRouter(
         name: Routers.otp.name,
         pageBuilder: (context, state) {
           return const MaterialPage(child: OtpScreen());
+        },
+      ),
+
+      GoRoute(
+        path: Routers.profile.path,
+        name: Routers.profile.name,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: ProfileScreen());
+        },
+      ),
+
+      GoRoute(
+        path: Routers.editProfile.path,
+        name: Routers.editProfile.name,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: EditScreen());
         },
       ),
 
