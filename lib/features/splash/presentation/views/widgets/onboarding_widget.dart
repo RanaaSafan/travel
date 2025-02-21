@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:travel_course/core/styles/app_size_box.dart';
+import 'package:travel_course/features/splash/presentation/views/widgets/list_data.dart';
 import '../../../../../core/constants/app_padding.dart';
 import '../../../../../core/styles/app_colors.dart';
 import '../../../../../core/styles/app_size.dart';
@@ -16,43 +19,31 @@ class OnboardingWidget extends StatefulWidget {
 }
 
 class _OnboardingWidgetState extends State<OnboardingWidget> {
-  final List<OnboardingData> onboardingPages = [
-    OnboardingData(
-      title: "Life is brief, but the universe is vast",
-      description:
-      "At Tourista Adventures, we curate unique and immersive travel experiences to destinations around the globe.",
-      imagePath: "assets/images/travel1.jpg",
-    ),
-    OnboardingData(
-      title: "The world is waiting for you, go discover it",
-      description:
-      "Embark on an unforgettable journey by venturing outside of your comfort zone. The world is full of hidden gems just waiting to be discovered.",
-      imagePath: "assets/images/travel2.png",
-    ),
-    OnboardingData(
-      title: "People don’t take trips, trips take people",
-      description:
-      "To get the best of your adventure you just need to leave and go where you like. we are waiting for you.",
-      imagePath: "assets/images/travel3.png",
-    ),
-  ];
+  final ListData _listData = ListData();
+  late List<OnboardingData> onboardingPages;
 
   final List<String> buttonTexts = ["Get Started", "Next", "Next"];
 
   final PageController _controller = PageController();
   int _currentIndex = 0;
-  bool _isButtonPressedSkip = false;
+
+  @override
+  void initState() {
+    super.initState();
+    onboardingPages = _listData.getOnboardingPages();
+  }
+
+
   bool _isButtonPressedNext = false;
   void _nextPage() {
     if (_currentIndex < onboardingPages.length - 1) {
       _controller.nextPage(
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeOut,
       );
     } else {
-      // GoRouter.of(context)
-      //     .push(Routers.TabBarSignLogin.name);
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>SignInScreen()));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const SignInScreen()));
     }
   }
 
@@ -97,12 +88,12 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                   clipBehavior: Clip.none,
                                   children: [
                                     Positioned(
-                                      bottom: -4,
-                                      left: 0,
-                                      right: 0,
+                                      bottom: -4.h,
+                                      left: 0.w,
+                                      right: 0.w,
                                       child: RepaintBoundary(
                                         child: CustomPaint(
-                                          size: Size(lastWord.length * 10, 5),
+                                          size: Size(lastWord.length * 10.sp, 5.sp),
                                           painter: CurvedLinePainter(),
                                         ),
                                       ),
@@ -121,7 +112,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      AppSizeBox.size10,
                       Padding(
                         padding: AppPadding.spacePadding,
                         child: Text(
@@ -130,7 +121,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           style: AppTextStyles.descriptionStyleOnboarding,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      AppSizeBox.size10,
                       Padding(
                         padding: AppPadding.spaceButton,
                         child: CustomButton(
@@ -156,14 +147,14 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
                 onboardingPages.length,
-                    (index) => Container(
-                  margin: EdgeInsets.only(right: 5),
-                  width: _currentIndex == index ? 40 : 10,
-                  height: 6,
+                (index) => Container(
+                  margin: EdgeInsets.only(right: 5.w),
+                  width: _currentIndex == index ? 40.w : 10.w,
+                  height: 6.h,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20.r),
                     color: _currentIndex == index
-                        ? Color.fromRGBO(168, 80, 0, 1)
+                        ? const Color.fromRGBO(168, 80, 0, 1)
                         : Colors.white,
                   ),
                 ),

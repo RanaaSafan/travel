@@ -22,12 +22,20 @@ class _SignInState extends State<SignIn> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>(); // لإدارة الفورم
 
   bool _isValidEmail(String email) {
-    final emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$');
+    final emailRegex =
+        RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$');
     return emailRegex.hasMatch(email);
   }
+
   bool _isValidPassword(String password) {
-    final passwordRegex = RegExp(r'^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$');
-    return passwordRegex.hasMatch(password);
+    return password.length >= 6;
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -44,29 +52,55 @@ class _SignInState extends State<SignIn> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppIcons.backButton(context),
-              const Center(
+               Center(
                   child: Text("Sign in now", style: AppTextStyles.signTitle)),
               AppSizeBox.size5,
-              const Center(
+               Center(
                   child: Text(
-                    "Please sign in to continue our app",
-                    style: AppTextStyles.signDes,
-                  )),
+                "Please sign in to continue our app",
+                style: AppTextStyles.signDes,
+              )),
               AppSizeBox.size25,
-              const Text(
+               Text(
                 "Email",
                 style: AppTextStyles.email,
               ),
               AppSizeBox.size10,
-              TextFieldCustom(title: "Email", controller: emailController),
+              TextFieldCustom(
+                controller: emailController,
+                keyboardType: TextInputType.emailAddress,
+                prefixIcon: Icons.email_rounded,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "please enter your email";
+                  }
+                  if (!_isValidEmail(value)) {
+                    return "please enter a valid email";
+                  }
+                  return null;
+                },
+              ),
               AppSizeBox.size30,
-              const Text(
+               Text(
                 "Password",
                 style: AppTextStyles.password,
               ),
               AppSizeBox.size10,
               TextFieldCustom(
-                  title: "Password", controller: passwordController),
+                controller: passwordController,
+                keyboardType: TextInputType.visiblePassword,
+                isPassword: true,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+
+                    return "please enter a password";
+                  }
+                  if (!_isValidPassword(value)) {
+                    return "password is at least 6 character";
+                  }
+                  return null;
+                },
+              ),
               AppSizeBox.size15,
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -86,15 +120,10 @@ class _SignInState extends State<SignIn> {
               CustomButton(
                   text: "Sign in",
                   onPressed: () {
-
                     if (formKey.currentState!.validate()) {
                       final email = emailController.text.trim();
-                      final password=passwordController.text.trim();
-                      if (_isValidEmail(email) && _isValidPassword(password)) {
-
-                      }
-
-
+                      final password = passwordController.text.trim();
+                      if (_isValidEmail(email) && _isValidPassword(password)) {}
                     }
                   }),
               AppSizeBox.size30,
@@ -108,7 +137,7 @@ class _SignInState extends State<SignIn> {
                         GoRouter.of(context).push(Routers.signupScreen.name);
                       },
                       child: const Text(
-                        "Sign Up",
+                        " Sign Up",
                         style: AppTextStyles.forgetPassword,
                       )),
                 ],

@@ -23,14 +23,24 @@ class _SignUpState extends State<SignUp> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>(); // لإدارة الفورم
 
   bool _isValidEmail(String email) {
-    final emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$');
+    final emailRegex =
+        RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$');
     return emailRegex.hasMatch(email);
   }
 
   bool _isValidPassword(String password) {
-    final passwordRegex = RegExp(r'^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$');
-    return passwordRegex.hasMatch(password);
+    // final passwordRegex =
+    //     RegExp(r'^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$');
+    // return passwordRegex.hasMatch(password);
+    return password.length >= 6;
   }
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -46,43 +56,81 @@ class _SignUpState extends State<SignUp> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppIcons.backButton(context),
-              const Center(
+               Center(
                   child: Text("Sign up now", style: AppTextStyles.signTitle)),
               AppSizeBox.size5,
-              const Center(
+               Center(
                   child: Text(
-                    "Please fill the details and create account",
-                    style: AppTextStyles.signDes,
-                  )),
+                "Please fill the details and create account",
+                style: AppTextStyles.signDes,
+              )),
               AppSizeBox.size25,
-              const Text(
+               Text(
                 "Username",
                 style: AppTextStyles.email,
               ),
               AppSizeBox.size10,
-              TextFieldCustom(title: "Username", controller: nameController),
+              TextFieldCustom(
+                controller: nameController,
+                keyboardType: TextInputType.text,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "please enter your name";
+                  }
+                  return null;
+                },
+              ),
               AppSizeBox.size25,
-              const Text(
+               Text(
                 "Email",
                 style: AppTextStyles.email,
               ),
               AppSizeBox.size10,
-              TextFieldCustom(title: "Email", controller: emailController),
+              TextFieldCustom(
+                controller: emailController,
+                keyboardType: TextInputType.emailAddress,
+                prefixIcon: Icons.email_rounded,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "please enter your email";
+                  }
+                  if (!_isValidEmail(value)) {
+                    return "please enter a valid email";
+                  }
+                  return null;
+                },
+              ),
               AppSizeBox.size30,
-              const Text(
+               Text(
                 "Password",
                 style: AppTextStyles.password,
               ),
               AppSizeBox.size10,
               TextFieldCustom(
-                  title: "Password", controller: passwordController),
+                controller: passwordController,
+                keyboardType: TextInputType.visiblePassword,
+                prefixIcon: Icons.lock,
+                isPassword: true,
+                validator: (value){
+                  if(value == null || value.isEmpty){
+                    return "please enter a password";
+
+                  }
+                  if (!_isValidPassword(value)) {
+                    return "password must be at least 6 character";
+                  }
+                  return null;
+                },
+              ),
               AppSizeBox.size15,
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        GoRouter.of(context).push(Routers.forgetpassword.name);
+                      },
                       child: const Text(
                         "Forget Password?",
                         style: AppTextStyles.forgetPassword,
@@ -91,15 +139,12 @@ class _SignUpState extends State<SignUp> {
               ),
               AppSizeBox.size30,
               CustomButton(
-                  text: "Sign in",
+                  text: "Sign Up",
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       final email = emailController.text.trim();
-                      final password= passwordController.text.trim();
-                      if (_isValidEmail(email) && _isValidPassword(password)) {
-
-                      }
-
+                      final password = passwordController.text.trim();
+                      if (_isValidEmail(email) && _isValidPassword(password)) {}
                     }
                   }),
               AppSizeBox.size30,
@@ -107,7 +152,7 @@ class _SignUpState extends State<SignUp> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                 const Text("Already have an account"),
+                  const Text("Already have an account"),
                   InkWell(
                       onTap: () {
                         GoRouter.of(context).push(Routers.signInScreen.name);

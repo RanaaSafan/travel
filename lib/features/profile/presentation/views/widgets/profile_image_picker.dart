@@ -4,8 +4,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:travel_course/core/styles/app_text_styles.dart';
 
 class ProfileImagePicker extends StatefulWidget {
-  final String defaultImage; // الصورة الافتراضية
-  final Function(File?) onImageSelected; // كول باك لإرجاع الصورة المختارة
+  final String defaultImage;
+  final Function(File?) onImageSelected;
 
   const ProfileImagePicker({
     Key? key,
@@ -28,7 +28,7 @@ class _ProfileImagePickerState extends State<ProfileImagePicker> {
       setState(() {
         _image = File(pickedFile.path);
       });
-      widget.onImageSelected(_image); // إرسال الصورة للـ parent widget
+      widget.onImageSelected(_image);
     }
   }
 
@@ -43,6 +43,7 @@ class _ProfileImagePickerState extends State<ProfileImagePicker> {
               : AssetImage(widget.defaultImage) as ImageProvider,
         ),
         SizedBox(height: 10),
+        Text("name",style: AppTextStyles.signTitle,),
         MaterialButton(
           onPressed: () {
             showModalBottomSheet(

@@ -1,15 +1,15 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppSize{
-  static const double titleSplash=42;
-  static const double titleOnboarding=25;
-  static const double descriptionOnboarding=19;
-  static const double textButton=20;
-  static const double height=double.infinity;
-  static const double width=double.infinity;
-  static const double descriptionSign=16;
-  static const double pinWidth=70;
-  static const double pinHeight=56;
+  static  double titleSplash=42.sp;
+  static  double titleOnboarding=25.sp;
+  static  double descriptionOnboarding=19.sp;
+  static  double textButton=20.sp;
+  static  double height=double.infinity.sp;
+  static  double width=double.infinity.sp;
+  static  double descriptionSign=16.sp;
+  static  double pinWidth=70.sp;
+  static  double pinHeight=56.sp;
 
 
 }

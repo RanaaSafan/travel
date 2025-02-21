@@ -1,16 +1,17 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppSizeBox{
-  static const size5=SizedBox(height: 5,);
-  static const size30=SizedBox(height: 30,);
-  static const size35=SizedBox(height: 35,);
-  static const size10=SizedBox(height: 10,);
-  static const size20=SizedBox(height: 20,);
-  static const size25=SizedBox(height: 25,);
-  static const size15=SizedBox(height: 15,);
+  static  SizedBox size5=SizedBox(height: 5.h,);
+  static  SizedBox size30=SizedBox(height: 30.h,);
+  static  SizedBox size35=SizedBox(height: 35.h,);
+  static  SizedBox size10=SizedBox(height: 10.h,);
+  static  SizedBox size20=SizedBox(height: 20.h,);
+  static  SizedBox size25=SizedBox(height: 25.h,);
+  static  SizedBox size15=SizedBox(height: 15.h,);
 
-  static const sizeWidth25=SizedBox(width: 25,);
-
+  static  SizedBox sizeWidth25=SizedBox(width: 25.w,);
+  static  SizedBox sizeWidth15=SizedBox(width: 15.w,);
 
 }

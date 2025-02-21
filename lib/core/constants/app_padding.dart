@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppPadding{
-  static const EdgeInsets spacePadding=  EdgeInsets.only(left: 40, right: 40, bottom: 40);
+  static  EdgeInsets spacePadding=  EdgeInsets.only(left: 40.w, right: 40.w, bottom: 40.h);
 
-  static const EdgeInsets spaceButton =EdgeInsets.all(8);
+  static  EdgeInsets spaceButton =EdgeInsets.all(8.w);
 
-  static const EdgeInsets symmPadding =EdgeInsets.symmetric(horizontal: 10);
+  static  EdgeInsets symmPadding =EdgeInsets.symmetric(horizontal: 10.w);
 
 
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:travel_course/core/styles/app_size_box.dart';
 
@@ -15,9 +16,9 @@ void MessageAlert(BuildContext parentContext) {  // Pass parent context
           borderRadius: BorderRadius.circular(20),
         ),
         child: Container(
-          padding: const EdgeInsets.all(20),
+          padding:  EdgeInsets.all(20.w),
           width: MediaQuery.of(parentContext).size.width * 0.8, // Use parentContext
-          height: 300,
+          height: 300.h,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
@@ -26,15 +27,15 @@ void MessageAlert(BuildContext parentContext) {  // Pass parent context
             mainAxisSize: MainAxisSize.min,
             children: [
              AppSizeBox.size30,
-              const Icon(Icons.email, size: AppSize.titleOnboarding),
-              const Center(
+               Icon(Icons.email, size: AppSize.titleOnboarding),
+               Center(
                 child: Text(
                   "Check your email",
                   style: AppTextStyles.signTitle,
                 ),
               ),
               AppSizeBox.size15,
-              const Center(
+               Center(
                 child: Text(
                   "We have sent password recovery instructions to your email",
                   textAlign: TextAlign.center,

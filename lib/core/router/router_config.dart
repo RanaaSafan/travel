@@ -11,8 +11,8 @@ import '../../features/splash/presentation/views/screens/splash_screen.dart';
 import 'app_router.dart';
 
 final router = GoRouter(
-    //initialLocation: Routers.SplashScreen.path,
-    initialLocation: Routers.profile.path,
+    initialLocation: Routers.SplashScreen.path,
+    //initialLocation: Routers.profile.path,
     routes: [
       GoRoute(
         path: Routers.SplashScreen.path,

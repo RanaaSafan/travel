@@ -30,7 +30,7 @@ class ProfileWidget extends StatelessWidget {
 
          ],
        ),
-      body: const SingleChildScrollView(
+      body:  SingleChildScrollView(
         child:
             Column(
               children: [

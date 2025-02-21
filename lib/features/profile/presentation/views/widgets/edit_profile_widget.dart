@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:travel_course/core/styles/app_size_box.dart';
 import 'package:travel_course/features/profile/presentation/views/widgets/profile_image_picker.dart';
+import 'package:travel_course/features/profile/presentation/views/widgets/user_details.dart';
 
 import '../../../../../core/constants/app_icons.dart';
 import '../../../../../core/styles/app_colors.dart';
@@ -40,6 +42,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                 },
               ),
             ),
+            AppSizeBox.size20,
+            const UserDetails(),
           ],
         ),
       ),

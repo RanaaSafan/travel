@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pinput/pinput.dart';
 import 'package:travel_course/core/styles/app_size.dart';
@@ -42,10 +43,10 @@ class _OtpState extends State<Otp> {
         children: [
           AppIcons.backButton(context),
           AppSizeBox.size30,
-          const Center(
+           Center(
               child: Text("OTP Verification", style: AppTextStyles.signTitle)),
           AppSizeBox.size20,
-          const Center(
+           Center(
             child: Text(
               "Please check your email to see the verification code",
               style: AppTextStyles.signDes,
@@ -53,7 +54,7 @@ class _OtpState extends State<Otp> {
             ),
           ),
           AppSizeBox.size30,
-          const Padding(
+           Padding(
             padding: AppPadding.spacePadding,
             child: Text("OTP Code", style: AppTextStyles.signTitle),
           ),
@@ -77,10 +78,10 @@ class _OtpState extends State<Otp> {
                 focusedPinTheme: PinTheme(
                   width: AppSize.pinWidth,
                   height: AppSize.pinHeight,
-                  margin: const EdgeInsets.symmetric(horizontal: 10),
-                  textStyle: const TextStyle(fontSize: 22),
+                  margin:  EdgeInsets.symmetric(horizontal: 10.w),
+                  textStyle:  TextStyle(fontSize: 22.sp),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.r),
                     border: Border.all(color: Colors.blue),
                   ),
                 ),

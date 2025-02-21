@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import '../../../../../core/constants/app_icons.dart';
 import '../../../../../core/constants/app_padding.dart';
 import '../../../../../core/styles/app_colors.dart';
@@ -53,6 +52,12 @@ class _ForgetPasswordState extends State<ForgetPassword> {
     return emailRegex.hasMatch(email);
   }
   @override
+  void dispose() {
+    _emailController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.colorText,
@@ -67,21 +72,34 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             children: [
               AppIcons.backButton(context),
               AppSizeBox.size30,
-              const Center(
+               Center(
                   child: Text("Forget password", style: AppTextStyles.signTitle)),
               AppSizeBox.size5,
-              const Center(
+               Center(
                   child: Text(
                     "Enter your email account to reset  your password",
                     style: AppTextStyles.signDes,
                   )),
               AppSizeBox.size35,
-              const Text(
+               Text(
                 "Email",
                 style: AppTextStyles.email,
               ),
               AppSizeBox.size10,
-              TextFieldCustom(title: "Email", controller: _emailController),
+              TextFieldCustom(
+                controller: _emailController,
+                keyboardType: TextInputType.emailAddress,
+                prefixIcon: Icons.email_rounded,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "please enter your email";
+                  }
+                  if (!_isValidEmail(value)) {
+                    return "please enter a valid email";
+                  }
+                  return null;
+                },
+              ),
 
               AppSizeBox.size35,
               CustomButton(

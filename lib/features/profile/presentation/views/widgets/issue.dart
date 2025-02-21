@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:travel_course/core/constants/app_padding.dart';
+import 'package:travel_course/core/styles/app_size_box.dart';
 import 'package:travel_course/core/styles/app_text_styles.dart';
 
 class Issue extends StatelessWidget {
@@ -10,13 +12,13 @@ class Issue extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding:   AppPadding.spaceButton,
       child: Row(
         children: [
           icon1,
-          SizedBox(width: 10,),
+         AppSizeBox.size10,
           Text(title,style: AppTextStyles.rewardtext,),
-          Spacer(),
+          const Spacer(),
           icon2,
 
         ],
