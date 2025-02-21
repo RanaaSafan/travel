@@ -22,9 +22,9 @@ class CustomButton extends StatelessWidget {
 
       style: ElevatedButton.styleFrom(
         backgroundColor: color,
-        fixedSize:  Size(400.sp, 50.sp),
+        fixedSize: Size(350.sp, 40.sp),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.r),
 
         ),
       ),

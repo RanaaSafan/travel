@@ -14,7 +14,7 @@ class CurvedLinePainter extends CustomPainter {
 
     Path path = Path();
     path.moveTo(0, size.height);
-    path.quadraticBezierTo(size.width / 2.w, -10.w, size.width.w, size.height.h);
+    path.quadraticBezierTo(size.width / 8, -30.h, size.width, size.height);
 
     canvas.drawPath(path, paint);
   }

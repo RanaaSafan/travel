@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-
-import '../styles/app_colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextFieldCustom extends StatefulWidget {
-  final String? label; // عنوان الحقل
-  final TextEditingController controller; // الكنترولر الخاص بالحقل
-  final TextInputType keyboardType; // نوع الكيبورد (نصوص، أرقام...)
-  final bool isPassword; // هل الحقل لكلمة المرور؟
-  final IconData? prefixIcon; // أيقونة قبل النص
-  final IconData? suffixIcon; // أيقونة بعد النص
-  final String? Function(String?)? validator; // التحقق من صحة الإدخال
-  final Function(String)? onChanged; // دالة تستدعي عند تغيير النص
-  final bool autoFocus; // التركيز التلقائي
-  final bool readOnly; // هل الحقل للعرض فقط؟
+  final String? label;
+  final TextEditingController controller;
+  final TextInputType keyboardType;
+  final bool isPassword;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
+  final String? Function(String?)? validator;
+  final Function(String)? onChanged;
+  final bool autoFocus;
+  final bool readOnly;
 
   const TextFieldCustom({
     Key? key,
@@ -55,12 +54,9 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
 
 
       decoration: InputDecoration(
-        // labelText: widget.title,
-        // hintText: "Enter your ${widget.label}",
-        // filled: true,
-        // fillColor: AppColors.colorTextForm,
+
         labelText: widget.label,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.r)),
         prefixIcon: widget.prefixIcon != null ? Icon(widget.prefixIcon, color: Colors.deepOrange) : null,
 
         suffixIcon: widget.isPassword
@@ -75,18 +71,18 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
             : (widget.suffixIcon != null ? Icon(widget.suffixIcon) : null),
 
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: hasError ? Colors.red : Colors.blueAccent, width: 2),
+          borderRadius: BorderRadius.circular(12.r),
+          borderSide: BorderSide(color: hasError ? Colors.red : Colors.blueAccent, width: 1.w),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Colors.red, width: 2),
+          borderRadius: BorderRadius.circular(12.r),
+          borderSide:  BorderSide(color: Colors.red, width: 1.w),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Colors.blueAccent, width: 2),
+          borderRadius: BorderRadius.circular(12.r),
+          borderSide:  BorderSide(color: Colors.blueAccent, width: 1.w),
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        contentPadding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
     ),
     );
   }

@@ -6,6 +6,7 @@ class AppPadding{
 
   static  EdgeInsets spaceButton =EdgeInsets.all(8.w);
 
+  static  EdgeInsets padding16 =EdgeInsets.all(16.w);
   static  EdgeInsets symmPadding =EdgeInsets.symmetric(horizontal: 10.w);
 
 

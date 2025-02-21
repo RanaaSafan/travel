@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class PhoneText extends StatefulWidget {
@@ -18,17 +19,17 @@ class _PhoneTextState extends State<PhoneText> {
   Widget build(BuildContext context) {
     return InternationalPhoneNumberInput(
       onInputChanged: (PhoneNumber num) {
-        // يمكنك هنا التعامل مع الرقم المُدخل
+
       },
       onInputValidated: (bool isValid) {
-        // يمكنك هنا التعامل مع حالة التحقق من صحة الرقم
+
       },
-      selectorConfig: const SelectorConfig(
+      selectorConfig:  SelectorConfig(
         trailingSpace: true,
-        leadingPadding: 15,
+        leadingPadding: 15.w,
         setSelectorButtonAsPrefixIcon: true,
         selectorType: PhoneInputSelectorType.DIALOG,
-        showFlags: true, // عرض علم الدولة (افتراضيًا true)
+        showFlags: true,
       ),
       ignoreBlank: false,
       autoValidateMode: AutovalidateMode.disabled,
@@ -37,14 +38,14 @@ class _PhoneTextState extends State<PhoneText> {
       formatInput: true,
       keyboardType: TextInputType.phone,
       inputDecoration: InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+        contentPadding:  EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           borderSide: BorderSide(
-              color: hasError ? Colors.red : Colors.blueAccent, width: 2),
+              color: hasError ? Colors.red : Colors.blueAccent, width: 1.w),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
         ),
       ),
     );

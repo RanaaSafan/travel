@@ -35,38 +35,38 @@ class _UserDetailsState extends State<UserDetails> {
               "First Name",
               style: AppTextStyles.email,
             ),
-            AppSizeBox.size15,
+            AppSizeBox.size5,
             TextFieldCustom(
               controller:fNameController ,
             ),
 
-            AppSizeBox.size15,
+            AppSizeBox.size25,
             Text(
               "Last Name",
               style: AppTextStyles.email,
             ),
-            AppSizeBox.size15,
+            AppSizeBox.size5,
             TextFieldCustom(
               controller:lNameController ,
             ),
 
-            AppSizeBox.size15,
+            AppSizeBox.size25,
             Text(
               "Location",
               style: AppTextStyles.email,
             ),
 
-            AppSizeBox.size15,
+            AppSizeBox.size5,
             TextFieldCustom(
               controller:locationController ,
             ),
 
-            AppSizeBox.size15,
+            AppSizeBox.size25,
             Text(
               "Phone Number",
               style: AppTextStyles.email,
             ),
-            AppSizeBox.size15,
+            AppSizeBox.size5,
            const Padding(
              padding: EdgeInsets.all(8.0),
              child: PhoneText(),

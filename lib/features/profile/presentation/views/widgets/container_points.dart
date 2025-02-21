@@ -33,7 +33,7 @@ class ContainerPoints extends StatelessWidget {
               AppSizeBox.sizeWidth15,
 
             const ColumnPoint(title:"Reward Points" , number:  "0.0"),
-
+              AppSizeBox.sizeWidth15,
               const VerticalDivider(
                 color: Colors.grey,
                 thickness: 1,
@@ -42,7 +42,7 @@ class ContainerPoints extends StatelessWidget {
              AppSizeBox.sizeWidth15,
 
               const ColumnPoint(title:"Travel Trips" , number:  "0.0"),
-
+              AppSizeBox.sizeWidth15,
               const VerticalDivider(
                 color: Colors.grey,
                 thickness: 1,

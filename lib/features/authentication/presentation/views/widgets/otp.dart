@@ -54,12 +54,9 @@ class _OtpState extends State<Otp> {
             ),
           ),
           AppSizeBox.size30,
-           Padding(
-            padding: AppPadding.spacePadding,
-            child: Text("OTP Code", style: AppTextStyles.signTitle),
-          ),
+           Center(child: Text("OTP Code", style: AppTextStyles.signTitle)),
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding:  AppPadding.padding16,
             child: Center(
               child: Pinput(
                 length: otpLength,
@@ -67,18 +64,18 @@ class _OtpState extends State<Otp> {
                 defaultPinTheme: PinTheme(
                   width:  AppSize.pinWidth,
                   height: AppSize.pinHeight,
-                  margin: const EdgeInsets.symmetric(horizontal: 10),
-                  textStyle: const TextStyle(fontSize: 22),
+                  margin:  AppPadding.symmPadding,
+                  textStyle:  TextStyle(fontSize: 22.sp),
                   decoration: BoxDecoration(
                     color: AppColors.colorTextForm,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.r),
                     border: Border.all(color: AppColors.colorTextForm),
                   ),
                 ),
                 focusedPinTheme: PinTheme(
                   width: AppSize.pinWidth,
                   height: AppSize.pinHeight,
-                  margin:  EdgeInsets.symmetric(horizontal: 10.w),
+                  margin:  AppPadding.symmPadding,
                   textStyle:  TextStyle(fontSize: 22.sp),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.r),

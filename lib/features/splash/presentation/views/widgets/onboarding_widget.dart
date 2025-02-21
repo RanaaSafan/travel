@@ -80,7 +80,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           text: TextSpan(
                             children: [
                               TextSpan(
-                                text: words.join(" ") + " ",
+                                text: "${words.join(" ")} ",
                                 style: AppTextStyles.textStyleOnboarding,
                               ),
                               WidgetSpan(
@@ -121,11 +121,10 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           style: AppTextStyles.descriptionStyleOnboarding,
                         ),
                       ),
-                      AppSizeBox.size10,
                       Padding(
                         padding: AppPadding.spaceButton,
                         child: CustomButton(
-                            text: '${buttonTexts[_currentIndex]}',
+                            text: buttonTexts[_currentIndex],
                             onPressed: () {
                               setState(() {
                                 _isButtonPressedNext = true;
@@ -140,16 +139,16 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
             },
           ),
           Positioned(
-            bottom: 80,
-            left: 0,
-            right: 0,
+            bottom: 80.h,
+            left: 0.w,
+            right: 0.w,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
                 onboardingPages.length,
                 (index) => Container(
                   margin: EdgeInsets.only(right: 5.w),
-                  width: _currentIndex == index ? 40.w : 10.w,
+                  width: _currentIndex == index ? 25.w : 5.w,
                   height: 6.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.r),
