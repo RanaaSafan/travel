@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../../core/constants/app_icons.dart';
 import '../../../../../core/constants/app_padding.dart';
 import '../../../../../core/router/app_router.dart';
@@ -34,6 +35,12 @@ class _SignUpState extends State<SignUp> {
     // return passwordRegex.hasMatch(password);
     return password.length >= 6;
   }
+
+  Future<void> storeUserData(String name) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('user_name', name); // تخزين الاسم
+  }
+
   @override
   void dispose() {
     emailController.dispose();
@@ -141,6 +148,7 @@ class _SignUpState extends State<SignUp> {
               CustomButton(
                   text: "Sign Up",
                   onPressed: () {
+                    storeUserData(nameController.text);
                     if (formKey.currentState!.validate()) {
                       final email = emailController.text.trim();
                       final password = passwordController.text.trim();
